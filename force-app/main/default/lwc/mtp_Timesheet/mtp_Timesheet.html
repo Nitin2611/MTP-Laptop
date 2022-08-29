@@ -1,0 +1,79 @@
+<template>
+    <div class="main-div">
+        <div class="top-title-div">
+            <div class="ttl">
+                <div class="ttl-hdr">Timesheet</div>
+                <div class="ttl-msg">Manage your daily tasks by filling the timesheet</div>
+            </div>
+        </div>
+        <div class="timehseet-disply-div">
+            <div class="blank-div"></div>
+            <div class="timesheet-block-div">
+                <div class="ts-left-div">
+                    <div class="ts-date">
+                        <div class="cal-icon">
+                            <img src={calendarIcon} alt="calendar icon" title="Task Date">
+                        </div>
+                        <div class="tsk-dte">
+                            <lightning-input type="date" name="timesheetDate" variant="label-hidden"></lightning-input>
+                            <!-- <lightning-input type="text" name="timesheetDate" variant="label-hidden"></lightning-input> -->
+                        </div>
+                    </div>
+                    <div class="ts-dtl">
+                        <div class="tsk-dtl">
+                            <p class="txt">Task Details</p>
+                        </div>
+                        <div class="tsk-pck">
+                            <lightning-combobox name="tasks" variant="label-hidden" value={value} placeholder="Tasks"
+                                options={options} onchange={handleChange}></lightning-combobox>
+                        </div>
+                        <div class="tsk-cmnt">
+                            <lightning-textarea name="taskCommentsBox" variant="label-hidden" placeholder="Comment">
+                            </lightning-textarea>
+                        </div>
+                    </div>
+                    <div class="ts-time">
+                        <div class="tme-header">
+                            <p class="txt">Time</p>
+                        </div>
+                        <div class="start-end-time">
+                            <div class="start-plane">
+                                <img src={startTimeIcon} alt="startTimeIcon">
+                            </div>
+                            <div>
+                                <p>Start Time</p>
+                            </div>
+                            <!-- <div class="round-trip"></div> -->
+                        </div>
+                    </div>
+                    <div class="ts-ttl-time">
+                        <div class="ttl-tme">
+                            <p class="txt">Total Time</p>
+                        </div>
+                        <div class="dsply-ttl-tme-div">
+                            <div class="dsply-ttl-tme">00-00-00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts-right-div">
+                    <!-- <div class="crcle"></div> -->
+                    <div class="ts-aprvr-cmnt">
+                        <div class="txt-cmnt-div">
+                            <p class="txt">Comments</p>
+                        </div>
+                        <lightning-textarea name="commentsBox" variant="label-hidden" placeholder="Type">
+                        </lightning-textarea>
+                    </div>
+                    <div class="ts-actn">
+                        <div class="ts-aprv">
+                            <img src={approveIcon} alt="Approve" title="Approve Timesheet">
+                        </div>
+                        <div class="ts-rjct">
+                            <img src={rejectIcon} alt="Reject" title="Reject Timesheet">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

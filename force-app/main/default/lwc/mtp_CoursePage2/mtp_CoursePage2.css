@@ -1,0 +1,85 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+}
+
+.imgDiv{
+    height: 40%;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+}
+
+.titleDiv{
+    margin-top: 12vh;
+}
+
+.workTitle{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.workDisc{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.workContainer{
+    position: relative;
+    margin-top: 30vh;
+    padding: 0 10%;
+}
+
+.workContainer .slds-col{
+    padding: 0 1.5%;
+}
+
+.subContainer{
+    background: #edeaea;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 1rem 7%;
+    height: 66vh;
+}
+
+.workContainer h2{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.brDiv{
+    width: 116%;
+    margin: 5px -8%;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.detailHeader{
+    font-weight: 600;
+}
+
+.brTabDiv{
+    width: 116%;
+    margin: -20px -8% 5px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.slds-tabs_default__nav{
+    border: none;
+}
+
+.moduleDiv{
+    background: #FFFFFF;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    height: 100px;
+    margin: 10px 0;
+}
+
+.moduleContainer{
+    height: 55vh;
+    overflow: auto;
+}
