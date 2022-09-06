@@ -26,33 +26,36 @@
         width: 32%;
     }
     .child-one{
-        font-size: 3rem;
+        font-size: 2.3rem;
     }
 }
 
 @media only screen and (min-width: 1365px) {
     .parent-div{
         width: auto;
-        height: 45rem !important;
+        height: 48rem !important;
     }
     .child-main {
         width: 32%;
     }
     .child-one{
-        font-size: 3rem;
+        font-size: 2.9rem;
     }
 }
 
 @media only screen and (min-width: 1900px) {
     .parent-div{
         width: auto;
-        height: 55rem !important;
+        height: 59.2rem !important;
     }
     .child-one {
         font-size: 62px !important;
     }
 }
 
+.siteforceStarterBody ..slds-m-top_x-large{
+    margin: 0 !important;
+}
 
 .parent-div {
     /* background-color: red; */

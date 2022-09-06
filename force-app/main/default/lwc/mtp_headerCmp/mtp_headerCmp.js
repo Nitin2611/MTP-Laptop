@@ -28,6 +28,10 @@ export default class Mtp_headerCmp extends NavigationMixin(LightningElement) {
         let menuIte = event.currentTarget.dataset.record;
         console.log({menuIte});
 
+        if(menuIte == 'Mv Clouds'){
+            window.open("https://mvclouds.com/", "_blank");
+        }
+
         var nameValue;
         var urlValue = '/s/';
 
@@ -50,10 +54,6 @@ export default class Mtp_headerCmp extends NavigationMixin(LightningElement) {
                 },
             });
         }
-
-        console.log({nameValue});
-        console.log({urlValue});
-
         if(nameValue && urlValue){
             this[NavigationMixin.Navigate]({
                     type: 'comm__namedPage',

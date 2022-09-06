@@ -132,6 +132,7 @@
 
   .logo{
     padding-left: 9px;
+    cursor: pointer;
   }
   .menu-btn-1{
     right: 70px;
