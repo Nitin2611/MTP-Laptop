@@ -99,11 +99,16 @@ export default class Mtp_Timesheet extends LightningElement {
                 console.log("task Name ==>" + this.tsTask);
             } else if (event.target.name == 'PopupModalStartTime') {
                 this.tsStartTime = event.target.value;
-
                 console.log("Start Time ==>" + this.tsStartTime);
-                console.log("testSD ==>" + this.tsStartTime.format());
+                var sd = new Date(this.tsStartTime);
+                this.tsStartTime = sd;
+                console.log("Start Time ==>" + this.tsStartTime);
+
             } else if (event.target.name == 'PopupModalEndTime') {
                 this.tsEndTime = event.target.value;
+                console.log("End Time ==>" + this.tsEndTime);
+                var ed = new Date(this.tsEndTime);
+                this.tsEndTime = ed;
                 console.log("End Time ==>" + this.tsEndTime);
             } else if (event.target.name == 'PopupModalComments') {
                 this.tsComments = event.target.value;
