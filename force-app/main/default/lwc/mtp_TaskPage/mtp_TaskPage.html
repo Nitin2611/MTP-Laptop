@@ -1,0 +1,55 @@
+<template>
+	<div class="container">
+		<div class="imgDiv" style={backgroundImage}>
+			<div class="titleDiv">
+				<p class="workTitle">My Tasks</p>
+				<p class="workDisc">Let’s learn and become pro with us !</p>
+			</div>
+		</div>
+		<div class="workContainer">
+			<div class="slds-grid slds-wrap">
+				<div class="slds-col slds-size_12-of-12">
+					<div class="courseDiv subContainer">
+						<h2 style="margin-bottom: 10px;">
+							Upcoming Tasks
+						</h2>
+						<div>
+							<lightning-tabset>
+								<lightning-tab label="All">
+									<div class="brTabDiv"></div>
+									<div class="moduleContainer">
+										<template for:each={taskList} for:item="list">
+											<div class="moduleDiv"  key={list.Id}>
+												<div class="imgSmallDiv">
+												</div>
+												<div class="contentDiv">
+													<h3 class="mainText"> {list.Name} </h3>
+												</div>
+												<div class="btnDiv">
+													<button class="slds-button slds-button_neutral startBtn"> Start </button>
+												</div>
+												<div>
+												</div>
+												<div class="btnDiv">
+													<button class="slds-button slds-button_neutral stopBtn"> Stop </button>
+												</div>
+												<div class="timecls">
+													<p>Estimated Time</p>
+													<p>00:00:00</p>
+												</div>
+											</div>
+</template>
+
+</div>
+</lightning-tab>
+<lightning-tab label="Completed">
+    <div class="brTabDiv"></div> Completed Course
+</lightning-tab>
+</lightning-tabset>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</template>
