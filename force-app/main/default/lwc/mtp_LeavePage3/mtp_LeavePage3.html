@@ -31,10 +31,12 @@
                         <div class="leave-block" key={pl.Id}>
                             <div class="left-tckt-circle"></div>
                             <div class="main-lv-blck">
-                                <p class="lv-days">{pl.Day__c} Day Application</p>
-                                <!-- <p class="lv-duration">Wed, 16 Nov 2022</p> -->
-                                <p class="lv-duration">{pl.startDateSTR} - {pl.endDateSTR}</p>
-                                <p class="lv-type">{pl.Reason__c}</p>
+                                <div>
+                                    <p class="lv-days">{pl.Day__c} Day Application</p>
+                                    <p class="lv-duration">{pl.startDateSTR} - {pl.endDateSTR}</p>
+                                    <p class="lv-type">{pl.Reason__c}</p>
+                                </div>
+                                <div class="lev-right-tp"><p>Awaiting</p></div>
                             </div>
                             <div class="right-tckt-circle"></div>
                         </div>
@@ -89,9 +91,9 @@
                 <!-- <div class="slds-align_absolute-center">
               <input type="button" value="Continue Exploring" onclick={handleClick} class="submit_btn slds-m-left_x-small" >
             </div> -->
-                <lightning-button variant="brand" label="Continue Exploring" onclick={handleClick}
+                <!-- <lightning-button variant="brand" label="Continue Exploring" onclick={handleClick}
                     class="submit_btn slds-align_absolute-center slds-m-left_x-small" style="margin:2%;">
-                </lightning-button>
+                </lightning-button> -->
             </div>
         </div>
     </div>
