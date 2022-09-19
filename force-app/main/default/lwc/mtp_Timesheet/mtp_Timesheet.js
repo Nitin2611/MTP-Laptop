@@ -6,7 +6,8 @@ import mtp_Airplane_StartTime_icon from '@salesforce/resourceUrl/mtp_Airplane_St
 import mtp_Airplane_EndTime_icon from '@salesforce/resourceUrl/mtp_Airplane_EndTime_icon';
 import mtp_Calendar_icon from '@salesforce/resourceUrl/mtp_Calendar_icon';
 
-import getTimesheetData from '@salesforce/apex/mtp_TimesheetController.getTimesheetData';
+// import getTimesheetData from '@salesforce/apex/mtp_TimesheetController.getTimesheetData';
+import getTimesheetData from '@salesforce/apex/mtp_TimesheetController.getTimesheet';
 import getTaskList from '@salesforce/apex/mtp_TimesheetController.getTaskList';
 import createTimesheetRecord from '@salesforce/apex/mtp_TimesheetController.createTimesheetRecord';
 export default class Mtp_Timesheet extends LightningElement {
@@ -17,7 +18,8 @@ export default class Mtp_Timesheet extends LightningElement {
     endTimeIcon = mtp_Airplane_EndTime_icon;                // end time (airplane) icon for timesheet
     calendarIcon = mtp_Calendar_icon;                       // calendar icon for timesheet
 
-    @track timesheetDataList = [];
+    @track isSpinner = false;
+    @track timesheetDataList;
     @track taskOptionList = [];
     @track isCreateTimesheetModalOpen = false;
 
@@ -37,19 +39,41 @@ export default class Mtp_Timesheet extends LightningElement {
         }
     }
 
+    endSpinner() {
+        setTimeout(() => {
+            this.isSpinner = false;
+        }, 2500);
+    }
+
     getTimesheetList() {
+        console.log('in the getTimeSheetList');
         try {
+            this.isSpinner = true;
             getTimesheetData()
                 .then(result => {
-                    this.timesheetDataList = result;
-                    console.log("timesheetDataList ==>");
+                    // this.timesheetDataList = result;
                     console.log({ result });
+
+                    var dataList = [];
+                    for(var key in result){
+                        dataList.push({value: result[key], key:key});
+                    }
+                    console.log({dataList});
+                    if(dataList.length > 0){
+                        this.timesheetDataList = [];
+                        this.timesheetDataList = dataList;
+                    } 
+                    this.endSpinner();
                 })
                 .catch(error => {
                     console.log({ error });
+                    // this.isSpinner = false;
+                    this.endSpinner();
                 });
         } catch (error) {
             console.log({ error });
+            // this.isSpinner = false;
+            this.endSpinner();
         }
     }
 
@@ -72,6 +96,11 @@ export default class Mtp_Timesheet extends LightningElement {
         } catch (error) {
             console.log({ error });
         }
+    }
+    
+
+    dateSelect(event){
+        console.log({event});
     }
 
     openTimesheetModal() {
@@ -122,6 +151,8 @@ export default class Mtp_Timesheet extends LightningElement {
 
     createTimesheet() {
         try {
+            this.isSpinner = true;
+            this.closeTimesheetModal();
             console.log("Create timesheet called");
             createTimesheetRecord({
                 taskId: this.tsTask,
@@ -132,12 +163,18 @@ export default class Mtp_Timesheet extends LightningElement {
                 .then(result => {
                     console.log("createTimesheet Result ==>");
                     console.log({ result });
+                    this.getTimesheetList();
+                    this.endSpinner();
                 })
                 .catch(error => {
                     console.log({ error });
+                    this.closeTimesheetModal();
+                    this.endSpinner();
                 });
         } catch (error) {
             console.log({ error });
+            this.closeTimesheetModal();
+            this.endSpinner();
         }
     }
 }
